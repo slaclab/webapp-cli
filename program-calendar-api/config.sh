@@ -6,6 +6,7 @@ NAMESPACE="program-calendar-dev"
 IMAGE="ghcr.io/slaclab/program-calendar-api"
 TAG="dev"
 
-# Gitignored files that become the Kubernetes Secret. Place these next to
-# this script before running 2-deploy.sh. They never get committed.
+# Optional gitignored files that become the Kubernetes Secret "app-secrets".
+# Place next to this script to enable live Google Calendar access; otherwise
+# the deployment runs without a Secret (/docs works, /events/* will error).
 SECRET_FILES=(credentials.json token.json config.json)
