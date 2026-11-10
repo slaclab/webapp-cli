@@ -33,3 +33,4 @@ spec:
         - name: app-secrets
           secret:
             secretName: app-secrets
+            optional: true
