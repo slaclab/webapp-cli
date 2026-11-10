@@ -1,0 +1,35 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: program-calendar-api
+  namespace: program-calendar-dev
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: program-calendar-api
+  template:
+    metadata:
+      labels:
+        app: program-calendar-api
+    spec:
+      containers:
+        - name: app
+          image: ghcr.io/slaclab/program-calendar-api:dev
+          imagePullPolicy: Always
+          ports:
+            - containerPort: 8000
+          volumeMounts:
+            - name: app-secrets
+              mountPath: /app/secrets
+              readOnly: true
+          readinessProbe:
+            httpGet:
+              path: /docs
+              port: 8000
+            initialDelaySeconds: 3
+            periodSeconds: 5
+      volumes:
+        - name: app-secrets
+          secret:
+            secretName: app-secrets

@@ -1,0 +1,12 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: program-calendar-api
+  namespace: program-calendar-dev
+spec:
+  selector:
+    app: program-calendar-api
+  ports:
+    - name: http
+      port: 80
+      targetPort: 8000

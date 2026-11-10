@@ -1,0 +1,5 @@
+requests
+google-api-python-client
+fastapi
+uvicorn[standard]
+google-auth-oauthlib

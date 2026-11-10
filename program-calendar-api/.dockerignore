@@ -1,0 +1,19 @@
+# Deploy artifacts — not needed inside the image
+*.sh
+manifests/
+Dockerfile
+.dockerignore
+
+# Local secrets (also gitignored, but belt-and-suspenders)
+credentials.json
+token.json
+config.json
+
+# VCS, caches, OS cruft
+.git
+.gitignore
+.github
+__pycache__
+*.pyc
+.DS_Store
+.venv
